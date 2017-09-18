@@ -1,0 +1,11 @@
+**/.DS_Store
+.idea
+*.pyc
+*.log*
+*.egg-info
+.tox/
+.cache/
+build/
+dist/
+.coverage
+
