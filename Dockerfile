@@ -4,7 +4,7 @@ LABEL capabilities='--cap-drop=all'
 RUN yum -y update \
  && yum -y install epel-release \
  && yum -y install curl git ip lsof make net-tools openssl unzip which xmlstarlet \
- && yum -y install xmlsec1 \
+ && yum -y install xmlsec1 xmlsec1-openssl \
  && yum -y install java-1.8.0-openjdk-devel.x86_64 \
  && yum -y clean all
 
