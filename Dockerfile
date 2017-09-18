@@ -23,3 +23,4 @@ RUN chmod -R +x /opt/bin/ \
 VOLUME /pwd
 USER $USERNAME
 CMD ["/opt/bin/xmldsigver.sh"]
+ENV JAVA_HOME=/etc/alternatives/java_sdk_1.8.0

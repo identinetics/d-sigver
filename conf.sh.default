@@ -42,7 +42,8 @@ _set_buildargs() {
 
 _set_run_args() {
     export ENVSETTINGS="
-        -e SIGNED_XMLFILE
+        -e SIGNED_XMLFILE=$SIGNED_XMLFILE
+        -e CERTFILE=$CERTFILE
     "
     export STARTCMD=''
 }
