@@ -8,10 +8,6 @@ RUN yum -y update \
  && yum -y install java-1.8.0-openjdk-devel.x86_64 \
  && yum -y clean all
 
-#RUN curl -O https://www-eu.apache.org/dist/xalan/xalan-j/binaries/xalan-j_2_7_2-bin-2jars.tar.gz \
-# && tar -xzf xalan-j_2_7_2-bin-2jars.tar.gz \
-# && rm xalan-j_2_7_2-bin-2jars.tar.gz
-
 COPY install/opt/xmlsectool /opt/xmlsectool
 ENV XMLSECTOOL=/opt/xmlsectool/xmlsectool.sh
 
@@ -20,8 +16,9 @@ ARG USERNAME=sigver
 RUN adduser $USERNAME
 
 COPY install/scripts/*.sh /opt/bin
-RUN chmod +x /start.sh /*.sh \
- && chown -R $USERNAME:$USERNAME /opt/
+RUN chmod +x /opt/bin/*.sh \
+ && mkdir /pwd \
+ && chown -R $USERNAME:$USERNAME /opt /pwd
 
 VOLUME /pwd
 USER $USERNAME
