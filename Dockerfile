@@ -15,8 +15,8 @@ ENV XMLSECTOOL=/opt/xmlsectool/xmlsectool.sh
 ARG USERNAME=sigver
 RUN adduser $USERNAME
 
-COPY install/scripts/*.sh /opt/bin
-RUN chmod +x /opt/bin/*.sh \
+COPY install/scripts/*.sh /opt/bin/
+RUN chmod -R +x /opt/bin/ \
  && mkdir /pwd \
  && chown -R $USERNAME:$USERNAME /opt /pwd
 
