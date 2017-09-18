@@ -20,7 +20,7 @@ fi
 
 status=0
 echo "xmlsectool: verify signature including signature certificate"
-./xmlsectool.sh --verifySignature --inFile $SIGNED_XMLFILE --certificate $CERTFILE
+/opt/xmlsectool/xmlsectool.sh --verifySignature --inFile $SIGNED_XMLFILE --certificate $CERTFILE
 let status=status+$?
 
 echo "xmlsec1: verify signature (any cert)"
