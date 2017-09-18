@@ -20,6 +20,7 @@ fi
 
 status=0
 echo "xmlsectool: verify signature including signature certificate"
+export JAVA_HOME=/etc/alternatives/java_sdk_1.8.0
 /opt/xmlsectool/xmlsectool.sh --verifySignature --inFile $SIGNED_XMLFILE --certificate $CERTFILE
 let status=status+$?
 
