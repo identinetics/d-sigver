@@ -44,6 +44,9 @@ _set_run_args() {
     export ENVSETTINGS="
         -e SIGNED_XMLFILE=$SIGNED_XMLFILE
         -e CERTFILE=$CERTFILE
+        -e MDSIGN_CERT=/etc/pki/sign/certs/metadata_crt.pem
+        -e MDSIGN_KEY=/etc/pki/sign/private/metadata_key.pem
+        -e MD_AGGREGATE=/var/md_feed/metadata.xml
     "
     export STARTCMD=''
 }

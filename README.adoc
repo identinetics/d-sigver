@@ -1,0 +1,21 @@
+= XML DSig Interop Test
+
+Validate the signature of a local XML document with XMLSectool and xmlsec1.
+Verify the signature certificate with XMLSectool.
+
+== Installation & configuration
+
+    cp conf.sh.default conf.sh
+    ./dscripts/build.sh
+
+== Usage
+
+    export SIGNED_XMLFILE=my-signed-doc.xml   # must be in current directory!
+    export CERTFILE=xml-signing-cert.pem  # must be in current directory!
+    ./dscripts/run.sh /xmldsigver.sh
+
+== Test
+
+Validate a signature created with pyXMLSecurity with XMLSectool and xmlsec1:
+
+    ./dscripts/run.sh /tests/test_pyff_signature.sh

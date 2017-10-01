@@ -1,0 +1,15 @@
+- load:
+   - /opt/testdata/md_source/idpExampleCom.xml
+- select
+- xslt:
+    stylesheet: tidy.xsl
+- store:
+     directory: /tmp/
+- finalize:
+     cacheDuration: PT4H
+     validUntil: P10D
+     ID: OurFederationSignedMetadata_
+- sign:
+    key: /opt/testdata/metadata_key.pem
+    cert: /opt/testdata/metadata_crt.pem
+- publish: /pwd/metadata_signed.xml
