@@ -8,6 +8,6 @@ cd /pwd
 
 echo "verify signature"
 export SIGNED_XMLFILE=/pwd/metadata_signed.xml
-export CERTFILE=/opt/testdata/metadata_crt.pem
+export CERTFILE=/opt/testdata/keys/metadata_crt.pem
 
 /xmldsigver.sh
