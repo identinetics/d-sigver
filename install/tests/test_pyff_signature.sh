@@ -3,6 +3,7 @@
 set -e
 
 echo "create signed metadata file"
+cd /pwd
 /usr/bin/pyff /opt/testdata/pyff/md_aggregator.fd
 
 echo "verify signature"

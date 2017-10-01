@@ -3,7 +3,7 @@ LABEL capabilities='--cap-drop=all'
 
 RUN yum -y update \
  && yum -y install epel-release \
- && yum -y install gcc git ip lsof make openssl unzip wget which xmlstarlet \
+ && yum -y install gcc gcc-c++ git ip lsof make openssl unzip wget which xmlstarlet \
  && yum -y install xmlsec1 xmlsec1-openssl \
  && yum -y install java-1.8.0-openjdk-devel.x86_64 \
  && yum -y clean all
@@ -37,9 +37,9 @@ RUN mkdir -p $repodir \
  && cd $repodir \
  && git clone $repourl . \
  && git checkout master \
- && python setup.py install \
+ && python setup.py install
 COPY install/testdata /opt/testdata
-COPY install/scripts/* /
+COPY install/scripts/*.sh /
 COPY install/tests/* /tests/
 
 
@@ -49,7 +49,7 @@ ARG USERNAME=sigver
 RUN adduser $USERNAME
 
 COPY install/scripts/*.sh /opt/bin/
-RUN chmod -R +x /opt/bin/ \
+RUN chmod +x /*.sh /tests/* \
  && mkdir /pwd \
  && chown -R $USERNAME:$USERNAME /opt /pwd
 

@@ -10,6 +10,6 @@
      validUntil: P10D
      ID: OurFederationSignedMetadata_
 - sign:
-    key: /opt/testdata/metadata_key.pem
-    cert: /opt/testdata/metadata_crt.pem
+    key: /opt/testdata/keys/metadata_key.pem
+    cert: /opt/testdata/keys/metadata_crt.pem
 - publish: /pwd/metadata_signed.xml
