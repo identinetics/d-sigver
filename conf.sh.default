@@ -43,7 +43,7 @@ create_intercontainer_network() {
 
 setup_vol_mapping() {
     VOLLIST=''
-    VOLMAPPING="-v $PWD/work:/pwd:Z"
+    VOLMAPPING="-v $PWD/work:/work:Z"
     if [[ ! -d $PWD/work ]]; then
         echo 'Error: missing directory ./work'
         exit 1
