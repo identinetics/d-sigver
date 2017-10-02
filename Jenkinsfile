@@ -14,7 +14,8 @@ pipeline {
         stage('Test') {
             steps {
                 sh '''
-                echo 'Testing pyFF signature'
+                echo 'Create pyFF signature and validate with xmlsectool and xmlsec1'
+                mkdir -p ./work && chmod 777 ./work
                 ./dscripts/run.sh -Ip /tests/test_pyff_signature.sh
                 '''
             }

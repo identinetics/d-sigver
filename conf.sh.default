@@ -2,36 +2,20 @@
 
 main() {
     SCRIPTDIR=$(cd $(dirname $BASH_SOURCE[0]) && pwd)
-    source $SCRIPTDIR/dscripts/conf_lib.sh  $@         # load library functions
+    source $SCRIPTDIR/dscripts/conf_lib.sh  $@   # load library functions
     configlib_version=2  # compatible version of conf_lib.sh
     check_version $configlib_version
     init_sudo
-    _set_volume_root
     _set_image_and_container_name
-    _set_users
     _set_buildargs
     _set_run_args
 }
 
 
-_set_volume_root() {
-    :
-}
-
-
 _set_image_and_container_name() {
-    # IMGID qualifies image, container, user and IP adddress; this is helpful for managing
-    # processes on the docker host etc.
-    IMGID='47'
-    PROJSHORT='xmldsigver'  # lowercase!
-    SERVICEDESCRIPTION=xmldsig_validation  # no blanks!
+    PROJSHORT='xmldsigver'
     export IMAGENAME="rhoerbe/$PROJSHORT"
     export CONTAINERNAME="$PROJSHORT"
-}
-
-
-_set_users() {
-    export START_AS_ROOT=''      # 'True' e.g. for apache to fall back to www user
 }
 
 
@@ -59,7 +43,12 @@ create_intercontainer_network() {
 
 setup_vol_mapping() {
     VOLLIST=''
-    VOLMAPPING="-v $PWD:/pwd:Z"
+    VOLMAPPING="-v $PWD/work:/pwd:Z"
+    if [[ ! -d $PWD/work ]]; then
+        echo 'Error: missing directory ./work'
+        exit 1
+    fi
+    chmod 777 $PWD/work  # container user reuqires write access
 }
 
 

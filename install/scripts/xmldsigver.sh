@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 
-cd /pwd
+cd /work
 
 echo 'Verify a signed xml document with different tools'
 if [[ -e $SIGNED_XMLFILE ]]; then

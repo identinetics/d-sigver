@@ -10,8 +10,8 @@ Verify the signature certificate with XMLSectool.
 
 == Usage
 
-    export SIGNED_XMLFILE=my-signed-doc.xml   # must be in current directory!
-    export CERTFILE=xml-signing-cert.pem  # must be in current directory!
+    export SIGNED_XMLFILE=my-signed-doc.xml   # must be in ./work!
+    export CERTFILE=xml-signing-cert.pem  # must be in ./work!
     ./dscripts/run.sh /xmldsigver.sh
 
 == Test
