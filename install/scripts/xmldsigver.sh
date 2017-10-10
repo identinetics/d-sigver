@@ -24,7 +24,9 @@ echo "xmlsectool: verify signature including signature certificate"
 let status=status+$?
 
 echo "xmlsec1: verify signature (any cert)"
-xmlsec1 --verify $SIGNED_XMLFILE
+/usr/bin/xmlsec1 --verify --pubkey-cert-pem /opt/testdata/keys/metadata_crt.pem  \
+        --id-attr:ID urn:oasis:names:tc:SAML:2.0:metadata:EntitiesDescriptor \
+        --output /tmp/idpExampleCom_verified.xml $SIGNED_XMLFILE
 let status=status+$?
 
 #echo "xmlsec1: verify signature including signature certificate"
